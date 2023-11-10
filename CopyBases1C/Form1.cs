@@ -101,36 +101,40 @@ namespace CopyBases1C
             while (!sr_BasesList.EndOfStream)
             {
                 string str = sr_BasesList.ReadLine();
-                // заполнение списка
-                if (str[0] == '[') // если строка начинается с [, то в ней содержится название базы
+
+                if (str.Length!=0) 
                 {
-                    str = str.Remove(0, 1);
-                    str = str.Remove(str.Length - 1, 1);
-                    namebase = str;
-
-                    str = sr_BasesList.ReadLine();
-                    if (str[0] == '[') continue;
-
-                    if (str.Contains("Connect=")) // если строка содержит "Connect=", то в ней содержится путь к базе
+                    // заполнение списка
+                    if (str[0] == '[') // если строка начинается с [, то в ней содержится название базы
                     {
-                        if (str.Contains("File")) // если строка содержит "File", то база файловая и ее можно копировать
+                        str = str.Remove(0, 1);
+                        str = str.Remove(str.Length - 1, 1);
+                        namebase = str;
+
+                        str = sr_BasesList.ReadLine();
+                        if (str[0] == '[') continue;
+
+                        if (str.Contains("Connect=")) // если строка содержит "Connect=", то в ней содержится путь к базе
                         {
-                            // обработка пути к файлу БД
-                            str = str.Remove(0, 14);
-                            str = str.Remove(str.Length - 2, 2);
-                            pathbase = str;
-                            if (File.Exists(Path.Combine(pathbase, "1cv8.1cd"))) // файл существует, можно копировать
+                            if (str.Contains("File")) // если строка содержит "File", то база файловая и ее можно копировать
                             {
-                                listBase.Add(new Bases { name = namebase, path = pathbase, copied = BasesStatus.OK });
+                                // обработка пути к файлу БД
+                                str = str.Remove(0, 14);
+                                str = str.Remove(str.Length - 2, 2);
+                                pathbase = str;
+                                if (File.Exists(Path.Combine(pathbase, "1cv8.1cd"))) // файл существует, можно копировать
+                                {
+                                    listBase.Add(new Bases { name = namebase, path = pathbase, copied = BasesStatus.OK });
+                                }
+                                else // файла не существует
+                                {
+                                    listBase.Add(new Bases { name = namebase, path = "", copied = BasesStatus.NotFound });
+                                }
                             }
-                            else // файла не существует
+                            else // если строка с "Connect=" не содержит "File", то база клиент-серверная или веб-Серверная. База не копируется
                             {
-                                listBase.Add(new Bases { name = namebase, path = "", copied = BasesStatus.NotFound });
+                                listBase.Add(new Bases { name = namebase, path = "", copied = BasesStatus.Server });
                             }
-                        }
-                        else // если строка с "Connect=" не содержит "File", то база клиент-серверная или веб-Серверная. База не копируется
-                        {
-                            listBase.Add(new Bases { name = namebase, path = "", copied = BasesStatus.Server });
                         }
                     }
                 }
