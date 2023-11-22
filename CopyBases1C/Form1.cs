@@ -174,6 +174,13 @@ namespace CopyBases1C
         /// <param name="e"></param>
         private async void button_CopyBases_Click(object sender, EventArgs e)
         {
+            string path = textBox_FolderCopy.Text;
+            listBox_Bases.Text = path;
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+                
             if (listBox_Bases.SelectedIndices.Count == 0)
             {
                 textBox_debug.Text = "Не выбраны базы!";
@@ -189,13 +196,13 @@ namespace CopyBases1C
                 if (listBox_Bases.GetSelected(i)) // если элемент выбран, то проходит копирование
                 {
                     // listBase[i].check = true; 
-                    if (textBoxFileName.Text.Length!=0 && textBoxZipName.Text.Length != 0)
-                    {
-                        //await Task.Run(() => CopyBases(listBase[i].name, listBase[i].path, listBase[i].copied)); // непосредственно - копирование файлов БД в асинхронном режиме
-                        string nameFile = textBoxFileName.Text;
-                        string nameZip= textBoxZipName.Text;
-                        await Task.Run(() => CopyBases(nameFile, listBase[i].path, listBase[i].copied, nameZip, nameFile));
-                    }
+                    await Task.Run(() => CopyBases("nameFile", listBase[i].path, listBase[i].copied, listBase[i].name, null));
+                    //if (textBoxFileName.Text.Length!=0 && textBoxZipName.Text.Length != 0)
+                    //{
+                    //    //await Task.Run(() => CopyBases(listBase[i].name, listBase[i].path, listBase[i].copied)); // непосредственно - копирование файлов БД в асинхронном режиме
+                    //    string nameFile = textBoxFileName.Text;
+                    //    string nameZip= textBoxZipName.Text;
+                    //}
                 }
             }
             if (checkBox_OpenFolder.Checked)

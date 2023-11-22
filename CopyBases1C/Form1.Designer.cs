@@ -47,10 +47,6 @@
             this.button_SelectFolderCopy = new System.Windows.Forms.Button();
             this.checkBox_OpenFolder = new System.Windows.Forms.CheckBox();
             this.label_Version = new System.Windows.Forms.Label();
-            this.textBoxZipName = new System.Windows.Forms.TextBox();
-            this.textBoxFileName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -119,10 +115,10 @@
             this.listBox_Bases.FormattingEnabled = true;
             this.listBox_Bases.Items.AddRange(new object[] {
             "Пусто"});
-            this.listBox_Bases.Location = new System.Drawing.Point(150, 119);
+            this.listBox_Bases.Location = new System.Drawing.Point(150, 67);
             this.listBox_Bases.Name = "listBox_Bases";
             this.listBox_Bases.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox_Bases.Size = new System.Drawing.Size(295, 212);
+            this.listBox_Bases.Size = new System.Drawing.Size(295, 264);
             this.listBox_Bases.TabIndex = 0;
             this.listBox_Bases.SelectedIndexChanged += new System.EventHandler(this.listBox_Bases_SelectedIndexChanged);
             // 
@@ -230,44 +226,9 @@
             this.label_Version.TabIndex = 11;
             this.label_Version.Text = "label3";
             // 
-            // textBoxZipName
-            // 
-            this.textBoxZipName.Location = new System.Drawing.Point(150, 63);
-            this.textBoxZipName.Name = "textBoxZipName";
-            this.textBoxZipName.Size = new System.Drawing.Size(192, 20);
-            this.textBoxZipName.TabIndex = 12;
-            // 
-            // textBoxFileName
-            // 
-            this.textBoxFileName.Location = new System.Drawing.Point(150, 89);
-            this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(192, 20);
-            this.textBoxFileName.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label3.Location = new System.Drawing.Point(12, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Имя архива";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label4.Location = new System.Drawing.Point(12, 103);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Имя файла";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(12, 148);
+            this.trackBar1.Location = new System.Drawing.Point(12, 88);
             this.trackBar1.Maximum = 9;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(132, 45);
@@ -278,7 +239,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label5.Location = new System.Drawing.Point(12, 132);
+            this.label5.Location = new System.Drawing.Point(12, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 13);
             this.label5.TabIndex = 19;
@@ -288,7 +249,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label6.Location = new System.Drawing.Point(109, 132);
+            this.label6.Location = new System.Drawing.Point(109, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 13);
             this.label6.TabIndex = 20;
@@ -302,10 +263,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxFileName);
-            this.Controls.Add(this.textBoxZipName);
             this.Controls.Add(this.label_Version);
             this.Controls.Add(this.checkBox_OpenFolder);
             this.Controls.Add(this.button_SelectFolderCopy);
@@ -351,10 +308,6 @@
         private System.Windows.Forms.Button button_SelectFolderCopy;
         private System.Windows.Forms.CheckBox checkBox_OpenFolder;
         private System.Windows.Forms.Label label_Version;
-        private System.Windows.Forms.TextBox textBoxZipName;
-        private System.Windows.Forms.TextBox textBoxFileName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
